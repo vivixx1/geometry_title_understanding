@@ -5,7 +5,7 @@ from Bert_KNN import knn_title, random_title, knn_title_threshold, choose_thresh
 def call_gpt4_api(messages, temperature=0.1):
     # API接口的URL
     url = "your end point url"
-    api_key = "your key"
+    api_key = "your azure api key"
 
     # 设置请求头
     headers = {
@@ -31,11 +31,11 @@ def call_gpt4_api(messages, temperature=0.1):
         return None
 
 def send_message(question, file_path, knn_titles=''):
-    print("vivi: " + question + "\n")
+    print("query: " + question + "\n")
     messages = [{"role": "system", "content": get_system_prompt(question, knn_titles)}, {"role": "user", "content": question}]
     assistant_reply = call_gpt4_api(messages)
     if assistant_reply:
-        print("\nGPT-4的回复: \n" + assistant_reply + "\n")
+        print("\nresponse: \n" + assistant_reply + "\n")
         with open(file_path, "a", encoding="utf-8") as file:
             file.write(assistant_reply + "\n")
 
