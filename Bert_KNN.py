@@ -29,7 +29,6 @@ elif os.path.exists(ALTERNATIVE_PATH):
 else:
     print("路径不存在")
 
-# 现在你可以使用BERT_PATH变量，它将指向存在的路径
 
 # a. 通过词典导入分词器
 tokenizer = BertTokenizer.from_pretrained(BERT_PATH)
@@ -106,7 +105,6 @@ def knn_title_threshold(title, knn_nums, threshold):
     # 返回最相近的knn_nums个题目和解析
     return [str(data[i]) for i in indices_threshold]
 
-    # 如果直接按比例筛选题目，跟直接找出最相近数量的题目没有区别，20个题等于30乘2/3
     # 根据阈值筛选结果
     # num_threshold = int(len(distances[0]) * threshold)
     # sorted_indices = [x for _, x in sorted(zip(distances[0], indices[0]))]
@@ -126,7 +124,7 @@ from sklearn.neighbors import NearestNeighbors
 from transformers import BertTokenizer, BertModel
 import random
 
-# 使用模拟退火算法选择阈值，初始阈值选择方法：首先得到每个最近邻题目的距离范围，然后取距离范围的中位数，再取中位数的中位数
+# 使用模拟退火算法选择阈值
 def choose_threshold(input_file, knn_nums, max_iterations=100, initial_temp=100.0, cooling_rate=0.99):
     with open(input_file, "r", encoding="utf-8") as file:
         data = [json.loads(line) for line in file]
