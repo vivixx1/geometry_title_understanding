@@ -40,14 +40,14 @@ def send_message(question, file_path, knn_titles=''):
             file.write(assistant_reply + "\n")
 
 def get_system_prompt(title, knn_titles):
-    system_prompt = """请你作为一名平面几何数学专家来协助我解析几何题目，首先找出题目中包含如点、线段、圆、多边形等，并且找出题目中平行，垂直，点在线上，点在多边形上等几何关系，并且都转化为构造语句
+    system_prompt = """请你作为一名平面几何数学专家来协助我解析几何题目，首先找出题目中包含如点、线段、圆、多边形等几何实体，并且找出题目中平行，垂直，点在线上，点在多边形上等几何关系，并且都转化为构造语句
 请按照我给你的例子中的格式，将题目填写在题目一栏，归纳出的几何关系填写在解析一栏中。
 需要注意的是每道题只有一个待证结论，请写在解析一栏的SHOW中。
 例子:
 输入题目：{"题目": "如图，在矩形$$ABCD$$中,点$$E$$是$$AD$$的中点,过$$A$$,$$E$$,$$C$$三点的圆交直线$$CD$$于另一点$$F$$.求证:$$AF \\bot BE$$."}
 输出：
 {"题目": "如图，在矩形$$ABCD$$中,点$$E$$是$$AD$$的中点,过$$A$$,$$E$$,$$C$$三点的圆交直线$$CD$$于另一点$$F$$.求证:$$AF \\bot BE$$.", "解析": " HYPOTHESES: \nPOINT A B C D E F\nRECTANGLE A B C D\nMIDPOINT E A D\nCIRCUMCENTER O A E C\nON_LINE F C D\nON_CIRCLE F O A\nSHOW: PERPENDICULAR A F B E"}
-我将给你一组构造语句以及对应几何关系的含义
+我将给你一组构造语句以及对应几何关系的含义供你学习
 构造语句 | 几何关系
 POINT A	| 构造一个自由点A
 ON_LINE C A B | C在直线AB上
