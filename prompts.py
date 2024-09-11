@@ -43,7 +43,6 @@ system_prompt = """请你来协助我解析几何题目，按照我给你的例�
 输入题目：{"题目": "如图，在矩形$$ABCD$$中,点$$E$$是$$AD$$的中点,过$$A$$,$$E$$,$$C$$三点的圆交直线$$CD$$于另一点$$F$$.求证:$$AF \\bot BE$$."}
 输出：
 {"题目": "如图，在矩形$$ABCD$$中,点$$E$$是$$AD$$的中点,过$$A$$,$$E$$,$$C$$三点的圆交直线$$CD$$于另一点$$F$$.求证:$$AF \\bot BE$$.", "解析": " HYPOTHESES: \nPOINT A B C D E F\nRECTANGLE A B C D\nMIDPOINT E A D\nCIRCUMCENTER O A E C\nON_LINE F C D\nON_CIRCLE F O A\nSHOW: PERPENDICULAR A F B E"}
-我将给你一组构造语句以及对应几何关系的含义
 构造语句 | 几何关系
 POINT A	| 构造一个自由点A
 ON_LINE C A B | C在直线AB上
@@ -70,4 +69,4 @@ EQDISTANCE A B C D | AB与CD长度相等
 EQ_PRODUCT A B A B B C B D | 两条边相乘与另两条边相乘相等AB*AB = BC*BD只能用于待证结论
 CON_TRIANGLE A B C D E F | △ABC≌△DEF
 SIM_TRIANGLE A B C D E F | △ABC∽△DEF
-接下来我会给你一组题目和几何关系供你学习参考\n"""
+"""
